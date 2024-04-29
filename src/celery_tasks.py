@@ -1,6 +1,4 @@
-from celery import Celery
-
-app = Celery("hello", broker="amqp://guest@localhost//")
+from .celery_app import app
 
 
 @app.task
@@ -11,4 +9,5 @@ def hellothenmultiply(x, y):
 
 @app.task
 def multiply(x, y):
+    print("multiply")
     return x * y
